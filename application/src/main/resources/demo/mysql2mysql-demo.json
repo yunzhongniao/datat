@@ -1,0 +1,55 @@
+{
+	"job": {
+		"content": [
+			{
+				"reader": {
+					"name": "mysqlreader",
+					"parameter": {
+						"column": [
+							"id",
+							"name",
+							"password"
+						],
+						"connection": [
+							{
+								"jdbcUrl": [
+									"jdbc:mysql://localhost:3306/datat?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8"
+								],
+								"table": [
+									"t_user"
+								]
+							}
+						],
+						"password": "yunzhong",
+						"username": "yunzhong"
+					}
+				},
+				"writer": {
+					"name": "mysqlwriter",
+					"parameter": {
+						"column": [
+							"id",
+							"name",
+							"password"
+						],
+						"connection": [
+							{
+								"jdbcUrl": "jdbc:mysql://localhost:3306/datat?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8",
+								"table": [
+									"t_user"
+								]
+							}
+						],
+						"password": "yunzhong",
+						"username": "yunzhong"
+					}
+				}
+			}
+		],
+		"setting": {
+			"speed": {
+				"channel": "1"
+			}
+		}
+	}
+}
