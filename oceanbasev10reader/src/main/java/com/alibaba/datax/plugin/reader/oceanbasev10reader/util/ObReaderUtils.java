@@ -1,6 +1,7 @@
 package com.alibaba.datax.plugin.reader.oceanbasev10reader.util;
 
 import com.alibaba.datax.common.element.*;
+import com.alibaba.datax.common.element.Record;
 import com.alibaba.datax.plugin.rdbms.util.DBUtil;
 import com.alibaba.datax.plugin.rdbms.util.DataBaseType;
 import com.alibaba.druid.sql.SQLUtils;
@@ -35,7 +36,7 @@ public class ObReaderUtils {
 
 
     private static Set<String> keywordsFromString2HashSet(final String keywords) {
-        return new HashSet(Arrays.asList(keywords.split(",")));
+        return new HashSet<String>(Arrays.asList(keywords.split(",")));
     }
 
     public static String escapeDatabaseKeywords(String keyword) {
