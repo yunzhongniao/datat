@@ -13,9 +13,12 @@ public class EnvInitialization {
 	@Autowired
 	private TGMysqlCommunicationKeeper tgKeeper;
 
+	@Autowired
+	private JobMysqlCommunicationKeeper jobKeeper;
+
 	@PostConstruct
 	public void envInit() {
 		// 初始化job，taskgroup通信的mysql实现
-		DistributeTGCommunicationManager.registerKeeper(tgKeeper);
+		DistributeTGCommunicationManager.registerKeeper(tgKeeper, jobKeeper);
 	}
 }

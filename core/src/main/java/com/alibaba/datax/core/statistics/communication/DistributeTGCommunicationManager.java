@@ -6,13 +6,16 @@ import java.util.Set;
 import org.apache.commons.lang3.Validate;
 
 import com.alibaba.datax.dataxservice.face.domain.enums.State;
+import com.alibaba.fastjson.JSON;
 
 public final class DistributeTGCommunicationManager {
 
 	private static TGCommunicationKeeper tgCommunicationKeeper = null;
+	private static JobCommunicationKeeper jobCommunicationKeeper = null;
 
-	public static void registerKeeper(TGCommunicationKeeper keeper) {
-		DistributeTGCommunicationManager.tgCommunicationKeeper = keeper;
+	public static void registerKeeper(TGCommunicationKeeper tgKeeper, JobCommunicationKeeper jobCommunicationKeeper) {
+		DistributeTGCommunicationManager.tgCommunicationKeeper = tgKeeper;
+		DistributeTGCommunicationManager.jobCommunicationKeeper = jobCommunicationKeeper;
 	}
 
 	public static void registerTaskGroupCommunication(Long jobId, int taskGroupId, Communication communication) {
@@ -55,5 +58,9 @@ public final class DistributeTGCommunicationManager {
 
 	public static Map<Integer, Communication> getTaskGroupCommunicationMap(Long jobId) {
 		return tgCommunicationKeeper.getTaskGroupCommunicationMap(jobId);
+	}
+
+	public static void reportJobCommunication(Long jobId, Communication communication) {
+		jobCommunicationKeeper.reportJobCommunication(jobId, communication);
 	}
 }

@@ -39,6 +39,8 @@
         </table>
         <table tableName="tg_communication">
         </table>
+        <table tableName="job_communication">
+        </table>
 
     </context>
 </generatorConfiguration>
